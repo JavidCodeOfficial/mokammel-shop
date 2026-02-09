@@ -1,0 +1,65 @@
+"use client";
+
+import { useScroll, useMotionValueEvent } from "framer-motion";
+import Link from "next/link";
+import { useState } from "react";
+import { Playpen_Sans } from "next/font/google";
+import { Menu, X } from "lucide-react";
+
+const playpen = Playpen_Sans({ weight: "800" });
+
+function Navbar() {
+  const { scrollY } = useScroll();
+
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = () => {
+    setIsOpen(!isOpen);
+  };
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setIsScrolled(latest > 10);
+  });
+
+  return (
+    <header
+      className={`sticky top-0 z-50 w-full backdrop-blur-lg transition-all duration-300 ease-in-out border-b
+    ${
+      isScrolled
+        ? "bg-background/90 border-border shadow-xs"
+        : "bg-transparent border-transparent shadow-none"
+    }`}
+    >
+      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
+        <div
+          className={`text-xl md:text-3xl text-primary ${playpen.className}`}
+        >
+          JENOVA
+        </div>
+
+        <div className="hidden md:flex items-center gap-12">
+          <Link href="#">مکمل ها</Link>
+          <Link href="#">محصولات</Link>
+          <Link href="#">صفحه اصلی</Link>
+        </div>
+
+        <div className="flex md:hidden items-center" onClick={handleOpen}>
+          {!isOpen ? <Menu size={16} /> : <X size={16} />}
+        </div>
+      </div>
+
+      {isOpen ? (
+        <div className="bg-background/95 absolute inset-x-0 top-16 border-b backdrop-blur-lg md:hidden">
+          <div className="container mx-auto flex flex-col items-end gap-4 px-4 py-4">
+            <Link href="#">مکمل ها</Link>
+            <Link href="#">محصولات</Link>
+            <Link href="#">صفحه اصلی</Link>
+          </div>
+        </div>
+      ) : null}
+    </header>
+  );
+}
+
+export default Navbar;
