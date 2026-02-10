@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { motion } from "motion/react";
 
 const ADMIN_SECRET = "letmein123"; // fake
 
@@ -21,7 +22,13 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div dir="rtl" className="min-h-[80vh] flex items-center justify-center">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      dir="rtl"
+      className="min-h-[80vh] flex items-center justify-center"
+    >
       <div className="w-80 space-y-4">
         <h1 className="text-xl font-bold">ورود مدیر</h1>
 
@@ -36,6 +43,6 @@ export default function AdminLoginPage() {
           ورود
         </Button>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -6,6 +6,7 @@ import { products } from "@/lib/constants";
 import { getAdminStatus } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 
 function AuthorizationPage() {
   const router = useRouter();
@@ -43,12 +44,20 @@ function AuthorizationPage() {
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {products.map((product) => (
-              <ProductCard
+            {products.map((product, index) => (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                viewport={{ once: true }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 * index }}
                 key={product.id}
-                product={product}
-                isAdminPanel={isAdmin}
-              />
+              >
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  isAdminPanel={isAdmin}
+                />
+              </motion.div>
             ))}
           </div>
         </div>

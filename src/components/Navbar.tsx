@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Playpen_Sans } from "next/font/google";
 import { Menu, X } from "lucide-react";
+import { motion } from "motion/react";
 
 const playpen = Playpen_Sans({ weight: "800" });
 
@@ -50,13 +51,18 @@ function Navbar() {
       </div>
 
       {isOpen ? (
-        <div className="bg-background/95 absolute inset-x-0 top-16 border-b backdrop-blur-lg md:hidden">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="bg-background/95 absolute inset-x-0 top-16 border-b backdrop-blur-lg md:hidden"
+        >
           <div className="container mx-auto flex flex-col items-end gap-4 px-4 py-4">
             <Link href="#">مکمل ها</Link>
             <Link href="#">محصولات</Link>
             <Link href="#">صفحه اصلی</Link>
           </div>
-        </div>
+        </motion.div>
       ) : null}
     </header>
   );

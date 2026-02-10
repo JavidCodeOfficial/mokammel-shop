@@ -3,15 +3,21 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import { motion } from "motion/react";
 
 export default function HeroSection() {
   return (
     <section dir="rtl" className="relative overflow-hidden">
-      <div className="container mx-auto px-4 py-16 grid gap-10 lg:grid-cols-2 items-center">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="container mx-auto px-4 py-16 grid gap-10 lg:grid-cols-2 items-center"
+      >
         {/* Text */}
         <div className="flex flex-col items-center">
           <div className="space-y-6">
-            <div className="absolute inset-16 bg-primary/10 blur-3xl rounded-full" />
+            <div className="absolute transition-colors inset-16 bg-primary/10 blur-3xl rounded-full" />
 
             <Badge className="w-fit bg-primary/90 text-white">
               فروش ویژه مکمل‌های ورزشی
@@ -43,6 +49,7 @@ export default function HeroSection() {
         </div>
 
         {/* Image */}
+
         <Image
           src="https://images.unsplash.com/photo-1579758629938-03607ccdbaba?auto=format&fit=crop&w=1200&q=80"
           alt="Fitness Supplements"
@@ -50,7 +57,7 @@ export default function HeroSection() {
           height={600}
           className="relative rounded-2xl object-cover shadow-2xl"
         />
-      </div>
+      </motion.div>
     </section>
   );
 }
