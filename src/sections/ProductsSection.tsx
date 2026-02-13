@@ -14,7 +14,10 @@ import { motion } from "motion/react";
 
 function ProductsSection() {
   return (
-    <section className="bg-background text-foreground flex min-h-dvh flex-col items-center justify-items-center">
+    <section
+      id="Products"
+      className="bg-background text-foreground flex min-h-dvh flex-col items-center justify-items-center"
+    >
       <div dir="rtl" className="container mx-auto px-4 py-10">
         {/* Header */}
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between mb-10">

@@ -5,19 +5,26 @@ import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { motion } from "motion/react";
-
-const ADMIN_SECRET = "letmein123"; // fake
+import { useAuthStore } from "@/store/useAuthStore";
+import toast from "react-hot-toast";
 
 export default function AdminLoginPage() {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const router = useRouter();
 
-  const login = () => {
-    if (password === ADMIN_SECRET) {
-      localStorage.setItem("isAdmin", "true");
+  const router = useRouter();
+  const { login, role, loading, error } = useAuthStore();
+
+  const handleLogin = async () => {
+    await login(email, password);
+
+    const currentRole = useAuthStore.getState().role;
+
+    if (currentRole === "admin") {
       router.push("/admin");
     } else {
-      alert("Wrong password");
+      toast.error(".شما دسترسی ادمین ندارید");
+      console.log(role);
     }
   };
 
@@ -32,6 +39,14 @@ export default function AdminLoginPage() {
       <div className="w-80 space-y-4">
         <h1 className="text-xl font-bold">ورود مدیر</h1>
 
+        {error && <p className="text-red-500">{error}</p>}
+
+        <Input
+          type="email"
+          className="border w-full p-2"
+          placeholder="ایمیل"
+          onChange={(e) => setEmail(e.target.value)}
+        />
         <Input
           type="password"
           className="border w-full p-2"
@@ -39,8 +54,13 @@ export default function AdminLoginPage() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <Button type="button" onClick={login} className="w-full p-2">
-          ورود
+        <Button
+          type="button"
+          onClick={handleLogin}
+          className="w-full p-2"
+          disabled={loading}
+        >
+          {loading ? "در حال ورود..." : "ورود"}
         </Button>
       </div>
     </motion.div>

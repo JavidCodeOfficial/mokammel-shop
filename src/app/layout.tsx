@@ -3,6 +3,8 @@ import { Vazirmatn } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
+import { Toaster } from "react-hot-toast";
+import AuthInitializer from "@/components/Authinitializer";
 
 const vazir = Vazirmatn({
   weight: "400",
@@ -22,6 +24,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${vazir.className} antialiased`}>
+        <Toaster position="top-center" reverseOrder={false} />
+
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -30,6 +34,7 @@ export default function RootLayout({
         >
           <Navbar />
 
+          <AuthInitializer />
           {children}
         </ThemeProvider>
       </body>

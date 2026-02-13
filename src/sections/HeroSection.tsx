@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -17,7 +18,7 @@ export default function HeroSection() {
         {/* Text */}
         <div className="flex flex-col items-center">
           <div className="space-y-6">
-            <div className="absolute transition-colors inset-16 bg-primary/10 blur-3xl rounded-full" />
+            <div className="absolute inset-16 bg-primary/10 blur-3xl rounded-full -z-10 pointer-events-none" />
 
             <Badge className="w-fit bg-primary/90 text-white">
               فروش ویژه مکمل‌های ورزشی
@@ -34,15 +35,17 @@ export default function HeroSection() {
             </p>
 
             <div className="flex gap-4">
-              <Button size="lg" className="rounded-xl">
-                مشاهده محصولات
+              <Button size="lg" className="rounded-xl" asChild>
+                <Link href="#Products">مشاهده محصولات</Link>
               </Button>
+
               <Button
                 size="lg"
                 variant="outline"
                 className="rounded-xl border-white/20 text-white hover:bg-white/10"
+                asChild
               >
-                مشاوره رایگان
+                <Link href="#Footer">مشاوره رایگان</Link>
               </Button>
             </div>
           </div>

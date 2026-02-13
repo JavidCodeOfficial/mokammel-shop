@@ -40,9 +40,36 @@ function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-12">
-          <Link href="#">مکمل ها</Link>
-          <Link href="#">محصولات</Link>
-          <Link href="#">صفحه اصلی</Link>
+          <Link
+            href="?category=vitamin#Products"
+            className="hover:text-primary transition-colors duration-300"
+          >
+            ویتامین
+          </Link>
+          <Link
+            href="?category=creatine#Products"
+            className="hover:text-primary transition-colors duration-300"
+          >
+            کراتین
+          </Link>
+          <Link
+            href="?category=protein#Products"
+            className="hover:text-primary transition-colors duration-300"
+          >
+            پروتئین بدنسازی
+          </Link>
+          <Link
+            href="#Products"
+            className="hover:text-primary transition-colors duration-300"
+          >
+            محصولات
+          </Link>
+          <Link
+            href="/"
+            className="hover:text-primary transition-colors duration-300"
+          >
+            صفحه اصلی
+          </Link>
         </div>
 
         <div className="flex md:hidden items-center" onClick={handleOpen}>
@@ -57,10 +84,37 @@ function Navbar() {
           transition={{ duration: 0.6 }}
           className="bg-background/95 absolute inset-x-0 top-16 border-b backdrop-blur-lg md:hidden"
         >
-          <div className="container mx-auto flex flex-col items-end gap-4 px-4 py-4">
-            <Link href="#">مکمل ها</Link>
-            <Link href="#">محصولات</Link>
-            <Link href="#">صفحه اصلی</Link>
+          <div className="container mx-auto flex flex-col-reverse items-end gap-4 px-4 py-4">
+            <Link
+              href="?category=vitamin#Products"
+              className="hover:text-primary transition-colors duration-300"
+            >
+              ویتامین
+            </Link>
+            <Link
+              href="?category=creatine#Products"
+              className="hover:text-primary transition-colors duration-300"
+            >
+              کراتین
+            </Link>
+            <Link
+              href="?category=protein#Products"
+              className="hover:text-primary transition-colors duration-300"
+            >
+              پروتئین بدنسازی
+            </Link>
+            <Link
+              href="#Products"
+              className="hover:text-primary transition-colors duration-300"
+            >
+              محصولات
+            </Link>
+            <Link
+              href="/"
+              className="hover:text-primary transition-colors duration-300"
+            >
+              صفحه اصلی
+            </Link>
           </div>
         </motion.div>
       ) : null}

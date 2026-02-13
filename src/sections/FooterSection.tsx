@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function FooterSection() {
   return (
-    <footer dir="rtl" className="border-t bg-background">
+    <footer id="Footer" dir="rtl" className="border-t bg-background">
       <div className="container mx-auto px-4 py-8 flex flex-col gap-8 md:flex-row items-center md:justify-between">
         {/* Brand */}
         <div className="flex flex-col items-center justify-center">
@@ -24,7 +24,7 @@ export default function FooterSection() {
 
           <span className="flex items-center gap-2 text-muted-foreground">
             <Phone className="w-4 h-4" />
-            ۰۹۱۲۱۲۳۴۵۶۷
+            <span dir="ltr">0904 434 6650</span>
           </span>
 
           <span className="flex items-center gap-2 text-muted-foreground">
