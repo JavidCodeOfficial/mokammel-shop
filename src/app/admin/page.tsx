@@ -11,7 +11,7 @@ function AuthorizationPage() {
   const { logout } = useAuthStore();
 
   return (
-    <div dir="rtl" className="container mx-auto px-4 py-10">
+    <div dir="rtl" className="container mx-auto px-4 py-10 max-w-7xl">
       <div className="flex gap-6 flex-row items-center justify-between mb-10">
         <AddProductDialog />
         <Button type="button" variant={"destructive"} onClick={logout}>

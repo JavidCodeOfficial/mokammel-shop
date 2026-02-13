@@ -10,8 +10,6 @@ import { motion } from "motion/react";
 const playpen = Playpen_Sans({ weight: "800" });
 
 function Navbar() {
-  const { scrollY } = useScroll();
-
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -19,19 +17,8 @@ function Navbar() {
     setIsOpen(!isOpen);
   };
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    setIsScrolled(latest > 10);
-  });
-
   return (
-    <header
-      className={`sticky top-0 z-50 w-full backdrop-blur-lg transition-all duration-300 ease-in-out border-b
-    ${
-      isScrolled
-        ? "bg-background/90 border-border shadow-xs"
-        : "bg-transparent border-transparent shadow-none"
-    }`}
-    >
+    <header className="sticky top-0 z-50 w-full backdrop-blur-lg ease-in-out border-b bg-background/90 border-border">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <div
           className={`text-xl md:text-3xl text-primary ${playpen.className}`}

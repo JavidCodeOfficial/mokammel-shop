@@ -42,8 +42,8 @@ export default function AddProductDialog() {
                 <DialogTitle className="text-2xl font-bold">
                   افزودن محصول جدید
                 </DialogTitle>
-                <DialogDescription>
-                  لطفا اطلاعات محصول را وارد کنید{" "}
+                <DialogDescription className="mx-auto">
+                  لطفا اطلاعات محصول را وارد کنید
                 </DialogDescription>
               </DialogHeader>
 
