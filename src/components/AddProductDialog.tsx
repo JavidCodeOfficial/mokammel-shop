@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,10 +11,12 @@ import {
   DialogOverlay,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { SelectComponent } from "./SelectComponent";
+import { useProductStore } from "@/store/useProductStore";
 
 export default function AddProductDialog() {
-  const [open, setOpen] = useState(false);
+  const { open, setOpen, form, setField, addProduct, loading } =
+    useProductStore();
 
   return (
     <>
@@ -29,14 +30,13 @@ export default function AddProductDialog() {
         <DialogOverlay className="bg-black/30 backdrop-blur-sm fixed inset-0" />
 
         <DialogContent className="p-0 border-none shadow-none bg-transparent">
-          {/* Animated wrapper inside DialogContent */}
           <div dir="rtl">
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="rounded-3xl bg-background p-8 shadow-lg flex flex-col items-center justify-around"
+              className="rounded-3xl bg-background p-8 shadow-lg flex flex-col justify-center items-center"
             >
               <DialogHeader>
                 <DialogTitle className="text-2xl font-bold">
@@ -48,21 +48,61 @@ export default function AddProductDialog() {
               </DialogHeader>
 
               <div className="mt-6 space-y-4">
-                <Input placeholder="نام محصول" />
-                <Input type="number" placeholder="قیمت (تومان)" />
-                <Textarea placeholder="توضیحات محصول" />
+                <Input
+                  value={form.title}
+                  onChange={(e) => setField("title", e.target.value)}
+                  type="text"
+                  placeholder="نام محصول"
+                />
+
+                <Input
+                  value={form.price != 0 ? form.price : ""}
+                  onChange={(e) => setField("price", Number(e.target.value))}
+                  type="number"
+                  placeholder="قیمت (تومان)"
+                />
+
+                <Input
+                  value={form.rating != 0 ? form.rating : ""}
+                  onChange={(e) => setField("rating", Number(e.target.value))}
+                  type="number"
+                  placeholder="امتیاز"
+                />
+
+                <Input
+                  value={form.tag}
+                  onChange={(e) => setField("tag", e.target.value)}
+                  type="text"
+                  placeholder="برچسب"
+                />
+
+                <Input
+                  value={form.image}
+                  onChange={(e) => setField("image", e.target.value)}
+                  type="text"
+                  placeholder="لینک عکس"
+                />
+
+                <SelectComponent
+                  placeholder="دسته بندی ها"
+                  options={[
+                    { value: "other", label: "سایر" },
+                    { value: "protein", label: "پروتیین" },
+                    { value: "creatine", label: "کراتین" },
+                    { value: "vitamins", label: "مولتی ویتامین" },
+                    { value: "acid", label: "آمینو اسید" },
+                  ]}
+                  onChange={(value: string) => setField("category", value)}
+                />
               </div>
 
               <div className="mt-6 flex justify-end gap-3">
                 <Button variant="outline" onClick={() => setOpen(false)}>
                   انصراف
                 </Button>
-                <Button
-                  onClick={() => {
-                    setOpen(false);
-                  }}
-                >
-                  ذخیره محصول{" "}
+
+                <Button onClick={addProduct} disabled={loading}>
+                  {loading ? "در حال ذخیره..." : "ذخیره محصول"}
                 </Button>
               </div>
             </motion.div>

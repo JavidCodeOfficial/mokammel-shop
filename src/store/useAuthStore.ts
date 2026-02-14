@@ -1,4 +1,4 @@
-import supabase from "@/SupabaseClient";
+import supabase from "@/lib/SupabaseClient";
 import { User } from "@supabase/supabase-js";
 import toast from "react-hot-toast";
 import { create } from "zustand";
