@@ -8,6 +8,7 @@ export type Product = {
   price: number;
   rating: number;
   tag: string;
+  desc: string;
   image: string;
   category: string;
 };
@@ -19,7 +20,9 @@ export type CategoryFilter =
   | "creatine"
   | "protein"
   | "vitamins"
-  | "acid";
+  | "acid"
+  | "gainer"
+  | "coffee";
 
 type ProductStore = {
   open: boolean;
@@ -38,7 +41,6 @@ type ProductStore = {
   deleteProduct: (id: string) => Promise<void>;
   editProduct: (id: string) => Promise<void>;
 
-  // ✅ new method to populate form for editing
   setForm: (product: ProductForm) => void;
 
   setSearch: (value: string) => void;
@@ -52,6 +54,7 @@ const initialForm: ProductForm = {
   price: 0,
   rating: 0,
   tag: "",
+  desc: "",
   image: "",
   category: "",
 };

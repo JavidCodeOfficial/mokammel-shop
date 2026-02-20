@@ -78,6 +78,8 @@ function ProductsSection() {
                     <SelectItem value="protein">پروتئین</SelectItem>
                     <SelectItem value="vitamins">ویتامین‌ها</SelectItem>
                     <SelectItem value="acid">آمینو اسیدها</SelectItem>
+                    <SelectItem value="acid">گینر</SelectItem>
+                    <SelectItem value="acid">قهوه</SelectItem>
                   </SelectContent>
                 </Select>
               </motion.div>
@@ -89,7 +91,7 @@ function ProductsSection() {
             ) : products.length === 0 ? (
               <p className="text-center py-10">محصولی یافت نشد</p>
             ) : (
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {products.map((product, index) => (
                   <motion.div
                     key={product.id}

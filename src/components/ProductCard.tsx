@@ -23,16 +23,15 @@ export default function ProductCard({
   return (
     <Card
       key={product.id}
-      className="group gap-4 p-0 rounded-2xl overflow-hidden border border-border/60 hover:shadow-xl transition"
+      className="group gap-0 p-0 rounded-2xl overflow-hidden border border-border/60 hover:shadow-xl transition"
     >
-      <CardHeader className="relative aspect-16/10 overflow-hidden">
-        <div className="absolute inset-0">
+      <CardHeader className="p-0">
+        <div className="relative aspect-16/10 overflow-hidden">
           <Image
             src={product.image}
             alt={product.title}
-            width={400}
-            height={300}
-            className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
           <Badge className="absolute top-3 right-3">{product.tag}</Badge>
         </div>
@@ -48,6 +47,9 @@ export default function ProductCard({
         </div>
         <p className="text-lg font-bold">
           {product.price.toLocaleString("fa-IR")} تومان
+        </p>
+        <p className="font-light text-base leading-tight line-clamp-2 my-2">
+          {product.desc}
         </p>
       </CardContent>
 

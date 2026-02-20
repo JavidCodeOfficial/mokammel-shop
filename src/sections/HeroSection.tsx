@@ -22,10 +22,6 @@ export default function HeroSection() {
           {/* Text */}
           <div className="flex flex-col items-start justify-center">
             <div className="space-y-6">
-              <div className="absolute inset-0 flex items-center justify-center -z-10 pointer-events-none ml-60">
-                <div className="w-[500px] h-[500px] bg-primary/20 blur-3xl rounded-full" />
-              </div>
-
               <Badge className="w-fit bg-primary/90 text-white">
                 فروش ویژه مکمل‌های ورزشی
               </Badge>
@@ -59,13 +55,18 @@ export default function HeroSection() {
 
           {/* Image */}
 
-          <Image
-            src="https://images.unsplash.com/photo-1579758629938-03607ccdbaba?auto=format&fit=crop&w=1200&q=80"
-            alt="Fitness Supplements"
-            width={600}
-            height={600}
-            className="relative rounded-2xl object-cover shadow-2xl"
-          />
+          <div className="relative flex items-center justify-center">
+            <Image
+              src="https://images.unsplash.com/photo-1579758629938-03607ccdbaba?auto=format&fit=crop&w=1200&q=80"
+              alt="Fitness Supplements"
+              width={600}
+              height={600}
+              className="rounded-4xl object-cover shadow-2xl"
+            />
+
+            {/* Glow */}
+            <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-4xl pointer-events-none -z-10" />
+          </div>
         </motion.div>
       </div>
     </section>

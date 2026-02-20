@@ -31,7 +31,7 @@ function AuthorizationPage() {
       ) : products.length === 0 ? (
         <p className="text-center py-10">هیچ محصولی یافت نشد.</p>
       ) : (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((product, index) => (
             <motion.div
               initial={{ opacity: 0, y: 20 }}

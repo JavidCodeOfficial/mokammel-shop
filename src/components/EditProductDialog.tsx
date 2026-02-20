@@ -14,6 +14,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { SelectComponent } from "./SelectComponent";
 import { useProductStore, Product } from "@/store/useProductStore";
+import { Textarea } from "./ui/textarea";
 
 interface EditProductDialogProps {
   productId: string;
@@ -42,6 +43,7 @@ export default function EditProductDialog({
         tag: product.tag,
         image: product.image,
         category: product.category,
+        desc: product.desc,
       });
     }
   }, [open, productId, products, setForm]);
@@ -104,14 +106,24 @@ export default function EditProductDialog({
                 placeholder="لینک عکس"
               />
 
+              <Textarea
+                value={form.desc}
+                onChange={(e) => setField("desc", e.target.value)}
+                placeholder="توضیحات محصول"
+                className="min-h-[120px] resize-none"
+              />
+
               <SelectComponent
-                placeholder="دسته بندی ها"
+                value={form.category || ""}
+                placeholder={"دسته بندی ها"}
                 options={[
                   { value: "other", label: "سایر" },
                   { value: "protein", label: "پروتئین" },
                   { value: "creatine", label: "کراتین" },
                   { value: "vitamins", label: "مولتی ویتامین" },
                   { value: "acid", label: "آمینو اسید" },
+                  { value: "gainer", label: "گینر" },
+                  { value: "coffee", label: "قهوه" },
                 ]}
                 onChange={(value: string) => setField("category", value)}
               />

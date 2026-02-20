@@ -13,6 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { SelectComponent } from "./SelectComponent";
 import { useProductStore } from "@/store/useProductStore";
+import { Textarea } from "./ui/textarea";
 
 export default function AddProductDialog() {
   const { open, setOpen, form, setField, addProduct, loading } =
@@ -83,6 +84,13 @@ export default function AddProductDialog() {
                   placeholder="لینک عکس"
                 />
 
+                <Textarea
+                  value={form.desc}
+                  onChange={(e) => setField("desc", e.target.value)}
+                  placeholder="توضیحات محصول"
+                  className="min-h-[120px] resize-none"
+                />
+
                 <SelectComponent
                   placeholder="دسته بندی ها"
                   options={[
@@ -91,6 +99,8 @@ export default function AddProductDialog() {
                     { value: "creatine", label: "کراتین" },
                     { value: "vitamins", label: "مولتی ویتامین" },
                     { value: "acid", label: "آمینو اسید" },
+                    { value: "gainer", label: "گینر" },
+                    { value: "coffee", label: "قهوه" },
                   ]}
                   onChange={(value: string) => setField("category", value)}
                 />

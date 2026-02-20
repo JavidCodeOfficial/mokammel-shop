@@ -26,6 +26,12 @@ function Navbar() {
 
         <div className="hidden md:flex items-center gap-12">
           <Link
+            href="?category=coffee#Products"
+            className="hover:text-primary transition-colors duration-300"
+          >
+            قهوه
+          </Link>
+          <Link
             href="?category=vitamin#Products"
             className="hover:text-primary transition-colors duration-300"
           >
@@ -70,6 +76,12 @@ function Navbar() {
           className="bg-background/95 absolute inset-x-0 top-16 border-b backdrop-blur-lg md:hidden"
         >
           <div className="container mx-auto flex flex-col-reverse items-end gap-4 px-4 py-4">
+            <Link
+              href="?category=coffee#Products"
+              className="hover:text-primary transition-colors duration-300"
+            >
+              قهوه
+            </Link>
             <Link
               href="?category=vitamin#Products"
               className="hover:text-primary transition-colors duration-300"
