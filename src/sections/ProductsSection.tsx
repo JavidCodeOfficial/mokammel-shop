@@ -74,12 +74,15 @@ function ProductsSection() {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="all">همه</SelectItem>
+                    <SelectItem value="protein">پروتئین وی</SelectItem>
                     <SelectItem value="creatine">کراتین</SelectItem>
-                    <SelectItem value="protein">پروتئین</SelectItem>
-                    <SelectItem value="vitamins">ویتامین‌ها</SelectItem>
-                    <SelectItem value="acid">آمینو اسیدها</SelectItem>
-                    <SelectItem value="acid">گینر</SelectItem>
-                    <SelectItem value="acid">قهوه</SelectItem>
+                    <SelectItem value="haircare">محصولات پوست و مو</SelectItem>
+                    <SelectItem value="acid">انواع آمینو</SelectItem>
+                    <SelectItem value="gainer">گینر</SelectItem>
+                    <SelectItem value="burner">چربی سوز ها</SelectItem>
+                    <SelectItem value="vitamins">مولتی ویتامین</SelectItem>
+                    <SelectItem value="preworkout">پمپ</SelectItem>
+                    <SelectItem value="coffee">قهوه</SelectItem>
                   </SelectContent>
                 </Select>
               </motion.div>

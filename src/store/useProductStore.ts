@@ -17,11 +17,14 @@ type ProductForm = Omit<Product, "id">;
 
 export type CategoryFilter =
   | "all"
-  | "creatine"
   | "protein"
-  | "vitamins"
-  | "acid"
+  | "creatine"
+  | "haircare"
+  | "amino"
   | "gainer"
+  | "burner"
+  | "vitamins"
+  | "preworkout"
   | "coffee";
 
 type ProductStore = {

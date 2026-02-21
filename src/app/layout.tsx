@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="fa" suppressHydrationWarning>
       <body className={`${vazir.className} antialiased`}>
         <Toaster position="top-center" reverseOrder={false} />
 

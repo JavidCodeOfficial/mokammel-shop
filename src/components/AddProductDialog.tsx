@@ -85,7 +85,7 @@ export default function AddProductDialog() {
                 />
 
                 <Textarea
-                  value={form.desc}
+                  value={form.desc || ""}
                   onChange={(e) => setField("desc", e.target.value)}
                   placeholder="توضیحات محصول"
                   className="min-h-[120px] resize-none"
@@ -95,11 +95,14 @@ export default function AddProductDialog() {
                   placeholder="دسته بندی ها"
                   options={[
                     { value: "other", label: "سایر" },
-                    { value: "protein", label: "پروتیین" },
+                    { value: "protein", label: "پروتیین وی" },
                     { value: "creatine", label: "کراتین" },
-                    { value: "vitamins", label: "مولتی ویتامین" },
-                    { value: "acid", label: "آمینو اسید" },
+                    { value: "haircare", label: "محصولات پوست و مو" },
+                    { value: "acid", label: "انواع آمینو" },
                     { value: "gainer", label: "گینر" },
+                    { value: "burner", label: "چربی سوز ها" },
+                    { value: "vitamins", label: "مولتی ویتامین" },
+                    { value: "preworkout", label: "پمپ" },
                     { value: "coffee", label: "قهوه" },
                   ]}
                   onChange={(value: string) => setField("category", value)}

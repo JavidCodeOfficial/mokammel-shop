@@ -17,43 +17,25 @@ function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-lg ease-in-out border-b bg-background/90 border-border">
-      <div className="container mx-auto flex h-16 items-center justify-between max-w-7xl px-6 md:px-4">
+      <div className="container mx-auto flex h-20 items-center justify-between max-w-7xl px-6 md:px-4">
         <div
-          className={`text-xl md:text-3xl text-primary ${playpen.className}`}
+          className={`text-3xl md:text-5xl text-primary ${playpen.className}`}
         >
           LUX SHOP
         </div>
 
-        <div className="hidden md:flex items-center gap-12">
+        <div className="hidden md:flex items-center gap-12 text-xl">
           <Link
-            href="?category=coffee#Products"
+            href="#Products"
             className="hover:text-primary transition-colors duration-300"
           >
             قهوه
           </Link>
           <Link
-            href="?category=vitamin#Products"
-            className="hover:text-primary transition-colors duration-300"
-          >
-            ویتامین
-          </Link>
-          <Link
-            href="?category=creatine#Products"
-            className="hover:text-primary transition-colors duration-300"
-          >
-            کراتین
-          </Link>
-          <Link
-            href="?category=protein#Products"
-            className="hover:text-primary transition-colors duration-300"
-          >
-            پروتئین بدنسازی
-          </Link>
-          <Link
             href="#Products"
             className="hover:text-primary transition-colors duration-300"
           >
-            محصولات
+            مکمل
           </Link>
           <Link
             href="/"
@@ -75,36 +57,18 @@ function Navbar() {
           transition={{ duration: 0.6 }}
           className="bg-background/95 absolute inset-x-0 top-16 border-b backdrop-blur-lg md:hidden"
         >
-          <div className="container mx-auto flex flex-col-reverse items-end gap-4 px-4 py-4">
+          <div className="container mx-auto flex flex-col-reverse items-end gap-6 px-4 py-4 text-lg">
             <Link
-              href="?category=coffee#Products"
+              href="#Products"
               className="hover:text-primary transition-colors duration-300"
             >
               قهوه
             </Link>
             <Link
-              href="?category=vitamin#Products"
-              className="hover:text-primary transition-colors duration-300"
-            >
-              ویتامین
-            </Link>
-            <Link
-              href="?category=creatine#Products"
-              className="hover:text-primary transition-colors duration-300"
-            >
-              کراتین
-            </Link>
-            <Link
-              href="?category=protein#Products"
-              className="hover:text-primary transition-colors duration-300"
-            >
-              پروتئین بدنسازی
-            </Link>
-            <Link
               href="#Products"
               className="hover:text-primary transition-colors duration-300"
             >
-              محصولات
+              مکمل
             </Link>
             <Link
               href="/"
